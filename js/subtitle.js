@@ -23,7 +23,7 @@ $(document).ready(function () {
 
     function addToSubtitle (start, end, text) {
         var presentText = $("#sbv").html();
-        newText = presentText + start + ',' + end + '\n' + text +'\n\n';
+        newText = presentText + start + ',' + end + '\n' + text +'\n';
         $("#sbv").html(newText);
     }
 
@@ -36,7 +36,6 @@ $(document).ready(function () {
 
             return '';
         }
-
 
         currentText = currentText.split('\n');
 
@@ -78,6 +77,7 @@ $(document).ready(function () {
             timerStarted = true;
             startTime = moment();
             $("#sbv").html("");
+            return false;
         }
 
         timeDiffNow = getTimeFromStart();

@@ -24,8 +24,10 @@
   <div class="row">
     <div class="span5 offset4"><p class="text-right"><h1>Subtitle Maker</h1></p></div>
     <div class="span3">&nbsp;</div>
+    <br />
+    <div class="span6 offset3"><p class="lead">Easily add timed subtitles to a YouTube video</p></div>
+    <div class="span3">&nbsp;</div>
   </div>
-  <br />
   <br />
 
   <div class="row">
@@ -35,12 +37,14 @@
           <br />
           <iframe width="0" height="0" id="embedYoutube" frameborder="0" ></iframe>
           <br />
-          <input type="text" placeholder="Paste link to youtube video here" id="youtubeSrc" />
+          <input type="text" placeholder="Paste link to YouTube video here" id="youtubeSrc" />
           <br />
           <button id="addVideo" class="btn btn-info btn-large" type="button">Put video</button>
           <br />
           <br />
-          <button id="add" class="btn btn-large disabled" type="button">Add subtitle</button>
+          <p class="lead">Next dialogue: </p>
+          <input type="text" id="nextDialogue" class="uneditable-input" />
+          <button id="add" class="btn btn-large disabled" type="button">Starts now</button>
           <button id="gap" class="btn btn-large disabled" type="button">GAP</button>
           <br />
           <br />
