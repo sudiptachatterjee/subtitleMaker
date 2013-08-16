@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+  <title>Subtitle maker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <style>
+  .row .span12 {
+    border: 1px solid #eee;
+  }
+  .row .span6 .lead {
+    font-color: #00FF00;
+  }
+  </style>
+  <script type="text/javascript" src="js/jquery-1.9.1.min.js"> </script>
+  <script type="text/javascript" src="js/moment.min.js"> </script>
+  <script type="text/javascript" src="js/subtitle.js"> </script>
+</head>
+
+<body>
+<div class="container">
+  <br />
+  <div class="row">
+    <div class="span5 offset4"><p class="text-right"><h1>Subtitle Maker</h1></p></div>
+    <div class="span3">&nbsp;</div>
+  </div>
+  <br />
+  <br />
+
+  <div class="row">
+    <div class="span12">
+      <div class="row">
+        <div class="span4 offset1">
+          <br />
+          <iframe width="0" height="0" id="embedYoutube" frameborder="0" ></iframe>
+          <br />
+          <input type="text" placeholder="Paste link to youtube video here" id="youtubeSrc" />
+          <br />
+          <button id="addVideo" class="btn btn-info btn-large" type="button">Put video</button>
+          <br />
+          <br />
+          <button id="add" class="btn btn-large disabled" type="button">Add subtitle</button>
+          <button id="gap" class="btn btn-large disabled" type="button">GAP</button>
+          <br />
+          <br />
+          <textarea id="subtitle" rows="5" placeholder="Insert transcript text here separated by newlines"></textarea>
+          <br />
+
+        </div>
+        <div class="span5 offset2">
+          <br />
+          <textarea id="sbv" rows="30"></textarea>
+          <br />
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
