@@ -23,7 +23,7 @@ function getTimeFromStart() {
 $(document).ready(function () {
 
     // Hide everything except the video div
-    $("#transcriptDiv").hide();
+    //$("#transcriptDiv").hide();
     $("#clickNextDiv").hide();
     $("#videoDiv").show();
 
@@ -60,11 +60,11 @@ $(document).ready(function () {
 
         // Parse and load the text
         var allLines = rawText.split('\n');
-        var whiteSpacePattern = new RegExp("\S");
         $.each(allLines, function(idx, line) {
-            if (whiteSpacePattern.test(line)) {
+            if (!line || /^\s*$/.test(line))
+                dummy=1;
+            else
                 transcript.push(line);
-            }
         });
 
         $("#transcriptDiv").hide();
@@ -85,11 +85,13 @@ $(document).ready(function () {
             $("#gap").addClass("disabled");
             return '';
         }
-        console.log("About to remove topmost text");
 
+        console.log("Transcript before");
+        console.log(transcript.length);
         var topMostText = transcript.splice(0,1);
         $("#nextDialogue").html(topMostText);
-        console.log("Next to remove "+transcript[0]);
+        console.log("Transcript after");
+        console.log(transcript.length);
 
         return topMostText;
     }
@@ -98,10 +100,11 @@ $(document).ready(function () {
     $("#startTimer").on('click', function() {
         timerStarted = true;
         startTime = moment();
-        $("#sbv").html();
-        return false;
+        $("#sbv").html("");
         $("#textStart").removeClass("disabled");
         $("#gap").removeClass("disabled");
+        $("#startTimer").hide();
+        return false;
     });
 
     $("#textStart").on('click', function() {
