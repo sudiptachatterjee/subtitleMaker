@@ -1,6 +1,6 @@
-var timerStarted = false;
 var startTime = '';
 var allSubtitlesArray = [];
+var currentText = '';
 
 // Returns an HH:MM:SS.SSS formatted timestamp that shows how far it has
 // been since the first click
@@ -23,7 +23,7 @@ function getTimeFromStart() {
 $(document).ready(function () {
 
     // Hide everything except the video div
-    //$("#transcriptDiv").hide();
+    $("#transcriptDiv").hide();
     $("#clickNextDiv").hide();
     $("#videoDiv").show();
 
@@ -98,19 +98,28 @@ $(document).ready(function () {
 
     var lastTimeDiff = '00:00:00';
     $("#startTimer").on('click', function() {
-        timerStarted = true;
         startTime = moment();
         $("#sbv").html("");
         $("#textStart").removeClass("disabled");
         $("#gap").removeClass("disabled");
         $("#startTimer").hide();
+        currentText = removeTop();
         return false;
     });
 
+    var firstCall = false;
     $("#textStart").on('click', function() {
+        // The first call needs to be ignored
+        if (firstCall == false) {
+            firstCall = true;
+            timeDiffNow = getTimeFromStart();
+            lastTimeDiff = timeDiffNow;
+            $("#sbv").attr('placeholder', "Got it - the dialogue will load here when the next one starts");
+            return false
+        }
         timeDiffNow = getTimeFromStart();
-        var currentText = removeTop();
         addToSubtitle(lastTimeDiff,timeDiffNow,currentText);
+        currentText = removeTop();
         lastTimeDiff = timeDiffNow;
 
         return false;
