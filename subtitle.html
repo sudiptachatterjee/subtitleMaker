@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="css/hint.min.css" rel="stylesheet" media="screen">
   <style>
   .row .span12 {
     border: 1px solid #eee;
@@ -35,22 +36,32 @@
       <div class="row">
         <div class="span4 offset1">
           <br />
-          <iframe width="0" height="0" id="embedYoutube" frameborder="0" ></iframe>
+          <div id="videoDiv">
+              <iframe width="0" height="0" id="embedYoutube" frameborder="0" ></iframe>
+              <br />
+              <input type="text" placeholder="Paste link to YouTube video here" id="youtubeSrc" />
+              <br />
+              <button id="addVideo" class="btn btn-info btn-large" type="button">Load video</button>
+          </div> <!-- /video div -->
           <br />
-          <input type="text" placeholder="Paste link to YouTube video here" id="youtubeSrc" />
-          <br />
-          <button id="addVideo" class="btn btn-info btn-large" type="button">Put video</button>
-          <br />
-          <br />
-          <p class="lead">Next dialogue: </p>
-          <input type="text" id="nextDialogue" class="uneditable-input" />
-          <button id="add" class="btn btn-large disabled" type="button">Starts now</button>
-          <button id="gap" class="btn btn-large disabled" type="button">GAP</button>
-          <br />
-          <br />
-          <textarea id="subtitle" rows="5" placeholder="Insert transcript text here separated by newlines"></textarea>
-          <br />
+          <div id="transcriptDiv">
+             <textarea id="transcriptText" rows="5" placeholder="Insert transcript text here separated by newlines"></textarea>`
+             <br />
+             <button id="addTranscript" class="btn btn-info btn-large" type="button">Add transcript</button>
+          </div>
 
+          <br />
+          <div id="clickNextDiv">
+              <p class="lead">Next dialogue: </p>
+              <span id="nextDialogue"></span>
+              <br />
+              <button id="textStart" class="btn btn-large btn-info" type="button">Start Timer</button>
+              <br />
+              <button id="textStart" class="btn btn-large disabled btn-inverse" type="button">Starts now</button>
+              <button id="gap" class="btn btn-large disabled" type="button">GAP</button>
+          </div> <!-- /click next div -->
+          <br />
+          <br />
         </div>
         <div class="span5 offset2">
           <br />
