@@ -1,6 +1,11 @@
 subtitleMaker
 =============
 
+"Of Manners gentle, of Affections mild; 
+In Wit a man; Simplicity, a child."
+
+--- Alexander Pope
+
 Generate an SBV file for a youtube video where you want to add subtitles
 
 *Note*: This assumes you have a transcript of a Youtube video ready already
